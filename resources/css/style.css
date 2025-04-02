@@ -1,0 +1,24 @@
+body{
+    font-family: "Inter", sans-serif;
+}
+
+.Btn{
+
+    background: #00AAA1;
+    padding:1rem;
+    color:#FFFFFF;
+
+}
+
+.bgPar{
+    background: #F2F8F7;
+}
+
+h1{
+    font-size: 10rem;
+}
+
+.myBorder{
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
