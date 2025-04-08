@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid d-flex ">
-        <a class="navbar-brand fw-bold" href="#">Nome utente</a>
+        
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -15,8 +16,21 @@
 
 
         <ul class="navbar-nav d-flex d-none d-md-flex">
-            <li class="nav-item"><a class="nav-link fw-bold" href="{{route('register')}}">Registrati</a></li>
-            <li class="nav-item"><a class="nav-link fw-bold" href="#">Articoli</a></li>
+            @guest
+                <li class="nav-item"><a class="nav-link fw-bold" href="{{route('register')}}">Registrati</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" href="{{route('login')}}">Accedi</a></li>
+            @else
+            
+            <li class="nav-item"><p class="nav-link " >Ciao <span class="fw-bold">{{Auth::user()->name}}</span></p></li>
+            <li class="nav-item"><a class="nav-link fw-bold" href="{{route('article.create')}}">Articoli</a></li>
+            <form action="{{route('logout')}}" method="POST">
+                @csrf
+                <li class="nav-item"><button class="nav-link fw-bold" type="submit"">Logout</button>
+                </li>
+            </form>
+            @endguest
+            
+            
             <li class="nav-item"><a class="nav-link fw-bold" href="#">Contatti</a></li>
             <li class="nav-item"><a class="nav-link fw-bold" href="#">About us</a></li>
 

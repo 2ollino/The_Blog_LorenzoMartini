@@ -21,8 +21,13 @@
 
 <body>
     <x-nav />
-    <x-header/>
+    <x-header />
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
 
+        </div>
+    @endif
     <div class="min-vh-100 m-0 p-0 gap-0">
         {{ $slot }}
     </div>
