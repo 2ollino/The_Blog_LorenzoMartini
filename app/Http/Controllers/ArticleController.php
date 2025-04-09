@@ -37,26 +37,8 @@ class ArticleController extends Controller implements HasMiddleware
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required|unique:articles|min:5',
-            'subtitle' => 'required|min:5',
-            'body' => 'required|min:100',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'category' => 'required',
-        ]);
-
-        $article = Article::create([
-
-            'title' => $request->title,
-            'subtitle' =>  $request->subtitle,
-            'body' =>  $request->body,
-            'image' =>  $request->file('image')->store('images', 'public'),
-            'category_id' =>  $request->category,
-            'user_id' => Auth::user()->id,
-        ]);
-
-        return redirect(route('homepage'))->with('message', 'Articolo creato con successo.');
+     {
+        // la funzione store() si trova nella classe CreateArticle.php
     }
 
     /**
