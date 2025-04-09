@@ -4,18 +4,18 @@
     <div class="container ">
         <div class="row justify-content-center">
             <div class="col-8 border rounded-5 p-3 bg">
-                <form enctype="multipart/form-data" wire:submit.prevent="store" class="p-3">
-                   
+                <form enctype="multipart/form-data" wire:submit="store" class="p-3">
+
                     <div class="mb-3">
                         <label class="form-label">Inserisci qui il titolo</label>
-                        <input type="text" class="form-control" wire:model.defer="title" ">
+                        <input type="text" class="form-control" wire:model.blur="title">
                         @error('title')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Inserisci qui il sottotitolo</label>
-                        <input type="text" class="form-control" wire:model.defer="subtitle"">
+                        <input type="text" class="form-control" wire:model.blur="subtitle">
                         @error('subtitle')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

@@ -10,47 +10,21 @@ use Illuminate\Support\Facades\Auth;
 
 class CreateArticle extends Component
 {
-
-    // #[Validate('required|unique:articles|min:5')]
-    // public $title = '';
-    // #[Validate('required|min:100')]
-    // public $body = '';
-    // #[Validate('required|min:5')]
-    // public $subtitle = '';
-    // #[Validate('required|image|mimes:jpeg,png,jpg,gif,svg|max:2048')]
-    // public $image = [];
-    // #[Validate('required')]
-    // public $category = [];
-
-
-
     use WithFileUploads;
 
+    #[Validate('required|unique:articles|min:5')]
     public $title;
-    public $subtitle;
-    public $body;
-    public $image;
-    public $category;
+    #[Validate('required|min:100')]
+    public $body ;
+    #[Validate('required|min:5')]
+    public $subtitle ;
+    #[Validate('required|image|mimes:jpeg,png,jpg,gif,svg|max:2048')]
+    public $image ;
+    #[Validate('required')]
+    public $category ;
 
-    protected $rules = [
-        'title' => 'required|unique:articles|min:5',
-        'subtitle' => 'required|min:5',
-        'body' => 'required|min:100',
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'category' => 'required',
-    ];
 
-    // public function save()
-    // {
-    //     $this->validate(); 
- 
-    //     Article::create(
-    //         $this->only(['title', 'subtitle', 'body', 'image', 'category'])
-    //     );
- 
-    //     return $this->redirect('homepage');
-    // }
- 
+
     public function store()
     {
         $this->validate();
